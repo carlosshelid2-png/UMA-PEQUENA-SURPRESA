@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Sorriso Para Você!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #ff6b6b; /* Rosa coral vibrante */
+            --cor-secundaria: #4ecdc4; /* Verde água suave */
+            --cor-texto: #333;
+            --cor-fundo: #f8f9fa;
+            --cor-card: #ffffff;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fdebea 0%, #f3eaf7 100%);
+            color: var(--cor-texto);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Para evitar barras de rolagem se os elementos saírem da tela */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); /* Fundo semi-transparente */
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--sombra), 0 0 0 5px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            width: 90%;
+            max-width: 700px;
+            position: relative; /* Para o efeito de "brilho" */
+            overflow: hidden; /* Garante que os elementos internos não saiam do contêiner */
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--cor-primaria) 0%, transparent 60%);
+            opacity: 0.6;
+            border-radius: 50%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--cor-secundaria) 0%, transparent 60%);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: float 7s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, 15px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; /* Fonte cursiva e charmosa */
+            color: var(--cor-primaria);
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #555;
+            font-size: 1.4em;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .frases {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .frases li {
+            background-color: var(--cor-card);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px var(--sombra);
+            text-align: center;
+            font-size: 1.1em;
+            color: #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 150px; /* Altura mínima para consistência */
+        }
+
+        .frases li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .frases li::before {
+            content: '💖'; /* Ícone de coração */
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: block;
+            color: var(--cor-primaria);
+        }
+
+        .frases li:nth-child(even)::before {
+            content: '✨'; /* Ícone de brilho */
+            color: var(--cor-secundaria);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.95em;
+            color: #777;
+            opacity: 0.8;
+        }
+
+        /* Efeitos de partículas sutis */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Um raio de sol para o seu dia!</h1>
+        <h2>Mensagens que aquecem o coração e inspiram a alma</h2>
+
+        <ul class="frases">
+            <li>"Acredite na magia dos seus sonhos, eles são o mapa do seu futuro."</li>
+            <li>"Você tem a força de mil sóis dentro de si. Brilhe!"</li>
+            <li>"Cada instante é uma tela em branco. Pinte com as cores da alegria!"</li>
+            <li>"Um sorriso seu é a mais bela melodia que o mundo pode ouvir."</li>
+            <li>"O amor e a gentileza são sementes que florescem em qualquer jardim."</li>
+            <li>"Você é um presente único, uma obra de arte em constante evolução."</li>
+            <li>"Lembre-se: você é capaz de coisas incríveis!"</li>
+            <li>"A vida é uma dança, e cada passo é uma nova descoberta."</li>
+            <li>"Que a felicidade te encontre em cada cantinho do seu caminho."</li>
+            <li>"Seja a luz que você deseja ver no mundo."</li>
+        </ul>
+
+        <div class="footer">
+            <p>Feito com muito carinho para te fazer sorrir!</p>
+        </div>
+    </div>
+
+    <script>
+        // Script para adicionar partículas flutuantes
+        const particlesContainer = document.body;
+        const numParticles = 50; // Quantidade de partículas
+
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const size = Math.random() * 5 + 2; // Tamanho entre 2px e 7px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            const delay = Math.random() * 5; // Atraso para a animação
+            particle.style.animationDelay = `-${delay}s`;
+            
+            const left = Math.random() * 100; // Posição horizontal
+            particle.style.left = `${left}%`;
+            
+            const duration = Math.random() * 5 + 5; // Duração da animação (entre 5s e 10s)
+            particle.style.animationDuration = `${duration}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
